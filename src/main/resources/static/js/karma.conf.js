@@ -20,10 +20,11 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
-      'my_components/app.js',
+      'my_components/main/app.module.js',
 
-      'my_components/phone-list.component.js',
-      'my_components/phone-list.component.spec.js'
+      'my_components/phone-list/phone-list.module.js',
+      'my_components/phone-list/phone-list.component.js',
+      'my_components/phone-list/phone-list.component.spec.js'
     ],
 
 
