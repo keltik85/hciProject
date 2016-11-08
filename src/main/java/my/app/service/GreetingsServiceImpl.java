@@ -10,9 +10,9 @@ import java.util.List;
 
 @Service
 public class GreetingsServiceImpl implements GreetingsService {
+
     @Autowired
     GreetingDao dao;
-
 
     public List<Greeting> getAllGreetings()
     {
