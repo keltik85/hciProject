@@ -12,3 +12,8 @@ To get the Project running in your IDE:
 - npm install karma karma-jasmine jasmine-core karma-phantomjs-launcher
 - npm install -g protractor phantomjs karma-cli
 - put karma, karma-cli, protractor and phantomjs on path
+
+To run the e2e tests do:
+- cd into the folder
+- webdriver-manager start
+- protractor protractor.conf.js
