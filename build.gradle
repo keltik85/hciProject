@@ -28,8 +28,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-mongodb:1.4.1.RELEASE")
     compile("org.springframework.boot:spring-boot-devtools:1.4.1.RELEASE")
     compile("org.springframework.data:spring-data-mongodb:1.9.4.RELEASE")
-
-    compile group: 'org.springframework', name: 'spring-web', version: '4.3.3.RELEASE'
+    compile("org.springframework:spring-web:4.3.3.RELEASE")
 
     testCompile("junit:junit")
 }
