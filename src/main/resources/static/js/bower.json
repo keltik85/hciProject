@@ -12,6 +12,7 @@
     "test",
     "tests"
   ],
+
   "dependencies": {
     "angular": "1.5.x",
     "angular-mocks": "1.5.x",
