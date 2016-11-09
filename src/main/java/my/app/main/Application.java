@@ -3,8 +3,7 @@ package my.app.main;
 
 import com.mongodb.Mongo;
 import my.app.model.angular.Phone;
-import org.apache.commons.io.IOUtils;
-import org.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +21,25 @@ import java.io.IOException;
 @ComponentScan({"my.app.*"})
 @Configuration
 public class Application {
+
+    @Autowired
+    private Mongo mongo;
+
+    @Bean
+    public MongoClientFactoryBean mongo() {
+        MongoClientFactoryBean mongo = new MongoClientFactoryBean();
+        mongo.setHost("localhost");
+        mongo.setPort(27017);
+        return mongo;
+    }
+
+    @Bean
+    @Qualifier("myMongoOperationsBean")
+    public MongoOperations mongoOperations(){
+        MongoOperations mongoOps = new MongoTemplate(mongo, "springdatabase");
+        return mongoOps;
+    }
+
     public static void main(String[] args) throws IOException {
         SpringApplication.run(Application.class, args);
     }
