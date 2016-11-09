@@ -3,6 +3,7 @@ package my.app.dao.angular;
 import com.mongodb.Mongo;
 import my.app.main.Application;
 import my.app.model.angular.Phone;
+
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class PhoneDaoImpl implements PhoneDao {
         try {
             mongoOps.insert(new Phone(currId, currAge, currSnippet, currName, currImageUrl));
         } catch (Exception ex) {
-            System.out.println("mongoOps.insert failed:\n" + ex.toString());
+            //System.out.println("mongoOps.insert failed:\n" + ex.toString());
         }
     }
 }

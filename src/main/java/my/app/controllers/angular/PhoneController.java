@@ -14,6 +14,7 @@ import java.util.List;
 
 
 @Controller
+@RequestMapping("/phones")
 public class PhoneController {
 
     @Autowired
