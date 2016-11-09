@@ -48,6 +48,7 @@ public class PhoneDaoImpl implements PhoneDao {
     private void insertIntoMongo(String currId, Integer currAge, String currSnippet, String currName, String currImageUrl) {
         try {
             mongoOps.insert(new Phone(currId, currAge, currSnippet, currName, currImageUrl));
+
         } catch (Exception ex) {
             //System.out.println("mongoOps.insert failed:\n" + ex.toString());
         }
