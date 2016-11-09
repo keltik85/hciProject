@@ -24,27 +24,8 @@ import java.io.IOException;
 public class Application {
 
     @Autowired
-    private Mongo mongo;
-
-    @Autowired
     @Qualifier("myMongoOperationsBean")
     private static MongoOperations mongoOps;
-
-    public
-    @Bean
-    MongoClientFactoryBean mongo() {
-        MongoClientFactoryBean mongo = new MongoClientFactoryBean();
-        mongo.setHost("localhost");
-        mongo.setPort(27017);
-        return mongo;
-    }
-
-    @Bean
-    @Qualifier("myMongoOperationsBean")
-    public MongoOperations mongoOperations() {
-        MongoOperations mongoOps = new MongoTemplate(mongo, "springdatabase");
-        return mongoOps;
-    }
 
     public static void main(String[] args) throws IOException {
         prepareMongoDBData();
@@ -57,7 +38,7 @@ public class Application {
                         Application.class.getResourceAsStream("../../../static/misc/phones.json"), "utf-8"));
         for (int i = 0; i < phones.length(); i++) {
             String currId = phones.getJSONObject(i).getString("id");
-            Integer currAge = Integer.valueOf(phones.getJSONObject(i).getString("age"));
+            Integer currAge = phones.getJSONObject(i).getInt("age");
             String currSnippet = phones.getJSONObject(i).getString("snippet");
             String currName = phones.getJSONObject(i).getString("name");
             String currImageUrl = phones.getJSONObject(i).getString("imageUrl");
