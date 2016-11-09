@@ -5,6 +5,7 @@ import my.app.model.angular.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -14,7 +15,7 @@ public class PhoneServiceImpl implements PhoneService {
     PhoneDao dao;
 
     @Override
-    public List<Phone> getAllPhones() {
+    public List<Phone> getAllPhones() throws IOException {
         return dao.getAllPhones();
     }
 }

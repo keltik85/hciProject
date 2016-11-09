@@ -22,35 +22,7 @@ import java.io.IOException;
 @ComponentScan({"my.app.*"})
 @Configuration
 public class Application {
-
-    @Autowired
-    @Qualifier("myMongoOperationsBean")
-    private static MongoOperations mongoOps;
-
     public static void main(String[] args) throws IOException {
-        prepareMongoDBData();
         SpringApplication.run(Application.class, args);
-    }
-
-    private static void prepareMongoDBData() throws IOException {
-        JSONArray phones = new JSONArray(
-                IOUtils.toString(
-                        Application.class.getResourceAsStream("../../../static/misc/phones.json"), "utf-8"));
-        for (int i = 0; i < phones.length(); i++) {
-            String currId = phones.getJSONObject(i).getString("id");
-            Integer currAge = phones.getJSONObject(i).getInt("age");
-            String currSnippet = phones.getJSONObject(i).getString("snippet");
-            String currName = phones.getJSONObject(i).getString("name");
-            String currImageUrl = phones.getJSONObject(i).getString("imageUrl");
-            insertIntoMongo(currId, currAge, currSnippet, currName, currImageUrl);
-        }
-    }
-
-    private static void insertIntoMongo(String currId, Integer currAge, String currSnippet, String currName, String currImageUrl) {
-        try {
-            mongoOps.insert(new Phone(currId, currAge, currSnippet, currName, currImageUrl));
-        } catch (Exception ex) {
-            System.out.println("mongoOps.insert failed:\n" + ex.toString());
-        }
     }
 }
