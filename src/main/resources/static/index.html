@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html ng-app="phonecatApp">
 <head>
+    <meta charset="utf-8">
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.css" />
     <script rel="stylesheet" href="js/my_components/main/app.css"></script>
     <script src="js/bower_components/angular/angular.js"></script>
-
+    <script src="js/bower_components/angular-route/angular-route.js"></script>
     <script src="js/my_components/main/app.module.js"></script>
-
+    <script src="js/my_components/main/app.config.js"></script>
     <script src="js/my_components/phone-list/phone-list.module.js"></script>
     <script src="js/my_components/phone-list/phone-list.component.js"></script>
+    <script src="js/my_components/phone-detail/phone-detail.module.js"></script>
+    <script src="js/my_components/phone-detail/phone-detail.component.js"></script>
 </head>
 <body>
 
-<!-- Use a custom component to render a list of phones -->
-<!-- phone-list></phone-list -->
 <div ng-view></div>
 
 </body>
