@@ -4,12 +4,14 @@
 angular.
   module('phoneDetail').
   component('phoneDetail', {
-    template: 'js/my_components/phone-detail/phone-detail.template.html',
+    templateUrl: 'js/my_components/phone-detail/phone-detail.template.html',
     controller: ['$http', '$routeParams',
-      function PhoneDetailController($routeParams) {
+      function PhoneDetailController($http, $routeParams) {
         var self = this;
+
+                   /*die einzelnen json files in mongodb speichern und einen spring-controller machen*/
         $http.get('phones/' + $routeParams.phoneId + '.json').then(function(response) {
-         self.phone = response.data;
+          self.phone = response.data;
         });
       }
     ]
