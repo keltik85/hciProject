@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface PhoneService {
     public List<Phone> getAllPhones() throws IOException;
+
+    public String getPhoneDetail(String phoneId) throws IOException;
 }

@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PhoneDao {
     List<Phone> getAllPhones() throws IOException;
+    String getPhoneDetail(String phoneId) throws IOException;
 }

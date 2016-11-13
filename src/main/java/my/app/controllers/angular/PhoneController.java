@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,5 +24,11 @@ public class PhoneController {
     @ResponseBody
     public List<Phone> getAllPhones() throws IOException {
         return phoneService.getAllPhones();
+    }
+
+    @RequestMapping(value = "/getPhoneDetail", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public String getPhoneDetail(@RequestParam(value="phoneId", required=true) String phoneId) throws IOException {
+        return phoneService.getPhoneDetail(phoneId);
     }
 }

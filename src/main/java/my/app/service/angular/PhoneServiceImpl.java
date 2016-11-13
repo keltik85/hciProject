@@ -18,4 +18,9 @@ public class PhoneServiceImpl implements PhoneService {
     public List<Phone> getAllPhones() throws IOException {
         return dao.getAllPhones();
     }
+
+    @Override
+    public String getPhoneDetail(String phoneId) throws IOException {
+        return dao.getPhoneDetail(phoneId);
+    }
 }
