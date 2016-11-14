@@ -21,11 +21,20 @@ module.exports = function(config) {
       '../../bower_components/angular-route/angular-route.js',
       '../../bower_components/angular-mocks/angular-mocks.js',
 
+      '../../my_components/core/core.module.js',
+      '../../my_components/core/checkmark/checkmark.filter.js',
+      '../../my_components/core/checkmark/checkmark.filter.spec.js',
+
       '../../my_components/main/app.module.js',
 
       '../../my_components/phone-list/phone-list.module.js',
       '../../my_components/phone-list/phone-list.component.js',
-      '../../my_components/phone-list/phone-list.component.spec.js'
+      '../../my_components/phone-list/phone-list.component.spec.js',
+
+      '../../my_components/phone-detail/phone-detail.module.js',
+      '../../my_components/phone-detail/phone-detail.component.js',
+      '../../my_components/phone-detail/phone-detail.component.spec.js'
+
     ],
 
 
