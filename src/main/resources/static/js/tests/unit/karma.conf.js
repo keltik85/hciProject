@@ -18,8 +18,14 @@ module.exports = function(config) {
       '../../bower_components/jquery/dist/jquery.min.js',
       '../../bower_components/jquery-ui/jquery-ui.js',
       '../../bower_components/angular/angular.js',
+      '../../bower_components/angular-resource/angular-resource.js',
       '../../bower_components/angular-route/angular-route.js',
       '../../bower_components/angular-mocks/angular-mocks.js',
+
+      '../../my_components/core/phone/phone.module.js',
+      '../../my_components/core/phone/phone.service.js',
+      '../../my_components/core/phone/phone.service.spec.js',
+
 
       '../../my_components/core/core.module.js',
       '../../my_components/core/checkmark/checkmark.filter.js',
