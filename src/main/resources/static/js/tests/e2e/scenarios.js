@@ -64,15 +64,42 @@ describe('PhoneCat Application', function() {
           ]);
         });
 
+        it('should render phone specific links', function() {
+          var query = element(by.model('$ctrl.query'));
+          query.sendKeys('nexus');
+
+          element.all(by.css('.phones li a')).first().click();
+          expect(browser.getLocationAbsUrl()).toBe('/detail/nexus-s');
+        });
   });
 
   describe('View: Phone detail', function() {
+
     beforeEach(function() {
       browser.get('index.html#!/detail/nexus-s');
     });
-    it('should display placeholder page with `phoneId`', function() {
-      expect(element(by.binding('$ctrl.phoneId')).getText()).toBe('nexus-s');
+
+    it('should display the `nexus-s` page', function() {
+      expect(element(by.binding('$ctrl.phone.name')).getText()).toBe('Nexus S');
     });
+
+    it('should display the first phone image as the main phone image', function() {
+      var mainImage = element(by.css('img.phone'));
+
+      expect(mainImage.getAttribute('src')).toMatch(/img\/phones\/nexus-s.0.jpg/);
+    });
+
+    it('should swap the main image when clicking on a thumbnail image', function() {
+      var mainImage = element(by.css('img.phone'));
+      var thumbnails = element.all(by.css('.phone-thumbs img'));
+
+      thumbnails.get(2).click();
+      expect(mainImage.getAttribute('src')).toMatch(/img\/phones\/nexus-s.2.jpg/);
+
+      thumbnails.get(0).click();
+      expect(mainImage.getAttribute('src')).toMatch(/img\/phones\/nexus-s.0.jpg/);
+    });
+
   });
 
 });
