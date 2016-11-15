@@ -11,16 +11,14 @@ describe('phoneDetail', function() {
 
     beforeEach(inject(function($componentController, _$httpBackend_, $routeParams) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/getPhoneDetail?phoneId=xyz').respond({name: 'phone xyz'});
-      $routeParams.phoneId = 'xyz';
+      $httpBackend.expectGET('phones/getPhoneDetail?phoneId=dell-streak-7').respond({name: 'phones/getPhoneDetail?phoneId=dell-streak-7'});
+      $routeParams.phoneId = 'dell-streak-7';
       ctrl = $componentController('phoneDetail');
     }));
 
     it('should fetch the phone details', function() {
-      expect(ctrl.phone).toBeUndefined();
-
       $httpBackend.flush();
-      expect(ctrl.phone).toEqual({name: 'phone xyz'});
+      expect(ctrl.phone).toEqual({name: 'phone dell-streak-7'});
     });
 
   });

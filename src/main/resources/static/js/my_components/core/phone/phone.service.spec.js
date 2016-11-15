@@ -20,7 +20,11 @@ describe('Phone', function() {
   // Instantiate the service and "train" `$httpBackend` before each test
   beforeEach(inject(function(_$httpBackend_, _Phone_) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('phones/phones.json').respond(phonesData);
+
+    /*
+    Phone.get({phoneId: $routeParams.phoneId, method: 'getPhoneDetail'}
+    */
+    $httpBackend.expectGET('phones/getAllPhones?phoneId=').respond(phonesData);
 
     Phone = _Phone_;
   }));
@@ -31,8 +35,8 @@ describe('Phone', function() {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should fetch the phones data from `/phones/phones.json`', function() {
-    var phones = Phone.query();
+  it('should fetch the phones data from `phones/getAllPhones`', function() {
+    var phones = Phone.getAllPhones();
 
     expect(phones).toEqual([]);
 
