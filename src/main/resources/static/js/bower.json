@@ -21,6 +21,7 @@
     "angular-route": "1.5.x",
     "bootstrap": "3.3.x",
     "jquery": "2.2.x",
-    "jquery-ui":"1.11"
+    "jquery-ui":"1.11",
+    "angular-chart.js":"1.0.3"
   }
 }
