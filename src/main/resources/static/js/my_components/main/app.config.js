@@ -11,6 +11,9 @@ angular.
         when('/detail/:phoneId', {
           template: '<phone-detail></phone-detail>'
         }).
+        when('/spidergraphictest', {
+          template: '<spider-overview></spider-overview>'
+        }).
         otherwise('/');
     }
   ]);
